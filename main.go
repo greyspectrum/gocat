@@ -39,4 +39,23 @@ func main() {
 	// Convert host and port to host:port
 	t := net.JoinHostPort(host, port)
 
+	// Listen for connections on BindIP:BindPort
+	ln, err := net.Listen("tcp", t)
+	if err != nil {
+
+	// If we cannot bind, print the error and quit
+        panic(err)
+    }
+
+	// Wait for connections
+	for {
+		conn, err := ln.Accept()
+		if err != nil {
+			fmt.Println(err)
+			continue
+	}
+
+	fmt.Printf("Received connection from %v\n", conn.RemoteAddr().String())
+	go handleConnectionNoLog(conn)
+	}
 }
