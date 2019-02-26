@@ -31,9 +31,6 @@ func main() {
 	host := os.Args[1]
 	port := os.Args[2]
 
-	fmt.Println(host)
-	fmt.Println(port)
-
 	flag.Parse()
 
 	// Convert host and port to host:port
