@@ -21,7 +21,7 @@ func handleConnectionNoLog(conn net.Conn) {
     io.Copy(conn, conn)
 }
 
-func main() {
+func tcpClient() {
 
 	if len(os.Args) != 3 {
 		fmt.Println("Usage:", os.Args[0], "<host>", "<port>")
