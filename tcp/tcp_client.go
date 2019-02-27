@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	host, port string
+	Host, Port string
 )
 
 func handleConnectionNoLog(conn net.Conn) {
@@ -28,13 +28,13 @@ func tcpClient() {
 		return
 	}
 
-	host := os.Args[1]
-	port := os.Args[2]
+	Host := os.Args[1]
+	Port := os.Args[2]
 
 	flag.Parse()
 
 	// Convert host and port to host:port
-	t := net.JoinHostPort(host, port)
+	t := net.JoinHostPort(Host, Port)
 
 	// Listen for connections on BindIP:BindPort
 	ln, err := net.Listen("tcp", t)
